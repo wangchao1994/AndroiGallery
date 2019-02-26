@@ -2,7 +2,6 @@ package com.raisesail.gallery.base;
 
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.view.Window;
 import com.raisesail.gallery.R;
 import com.raisesail.gallery.handler.GlobalHandler;
 import com.raisesail.gallery.immersive.StatusBar;
