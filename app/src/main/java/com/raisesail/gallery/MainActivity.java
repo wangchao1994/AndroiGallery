@@ -11,7 +11,11 @@ import android.widget.ListView;
 import com.raisesail.gallery.adapter.PhotoRecyAdapter;
 import com.raisesail.gallery.base.BaseActivity;
 import com.raisesail.gallery.bean.DetailPhotoInfo;
+import com.raisesail.gallery.bean.event.DataFreshEvent;
 import com.raisesail.gallery.decoration.GridSpacingItemDecoration;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +50,13 @@ public class MainActivity extends BaseActivity {
     protected void initContentView() {
         setContentView(R.layout.activity_main);
         initView();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void NotifiedDataRefresh(DataFreshEvent dataFreshEvent){
+        if (dataFreshEvent.isRefresh){
+            //进行数据刷新
+        }
     }
 
     private void initView() {

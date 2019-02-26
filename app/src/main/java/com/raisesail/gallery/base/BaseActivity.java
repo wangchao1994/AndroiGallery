@@ -24,7 +24,7 @@ public abstract class BaseActivity extends BasePermissionsActivity implements Gl
         mGlobalHandler = GlobalHandler.getInstance();
         //requestPermission(new String[]{Manifest.permission.CAMERA},PERMISSION_REQUEST_CODE);
         AppManager.getAppManager().addActivity(this);
-       // EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this);
     }
 
     private void initStatusBar() {
@@ -44,6 +44,6 @@ public abstract class BaseActivity extends BasePermissionsActivity implements Gl
     protected void onDestroy() {
         super.onDestroy();
         AppManager.getAppManager().removeActivity(this);
-        //EventBus.getDefault().unregister(this);
+        EventBus.getDefault().unregister(this);
     }
 }
