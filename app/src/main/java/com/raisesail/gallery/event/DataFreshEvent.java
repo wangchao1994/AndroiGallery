@@ -1,4 +1,4 @@
-package com.raisesail.gallery.bean.event;
+package com.raisesail.gallery.event;
 
 public class DataFreshEvent {
     public boolean isRefresh;

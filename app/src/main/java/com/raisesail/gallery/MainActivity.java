@@ -1,17 +1,13 @@
 package com.raisesail.gallery;
 
-import android.os.Environment;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ListView;
 
 import com.raisesail.gallery.adapter.PhotoRecyAdapter;
 import com.raisesail.gallery.base.BaseActivity;
 import com.raisesail.gallery.bean.DetailPhotoInfo;
-import com.raisesail.gallery.bean.event.DataFreshEvent;
+import com.raisesail.gallery.event.DataFreshEvent;
 import com.raisesail.gallery.decoration.GridSpacingItemDecoration;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -21,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
+
     private RecyclerView mRecyclerView;
     private int mSpanCount = 4;
     private int mSpacing = 8;
