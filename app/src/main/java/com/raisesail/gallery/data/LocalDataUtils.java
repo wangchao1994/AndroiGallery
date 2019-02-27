@@ -44,7 +44,7 @@ public class LocalDataUtils {
             LocalThumb materialBean = new LocalThumb();
             //获取图片的名称
             //materialBean.setPhotoFileNumber(cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME)));
-            materialBean.setPhotoFileNumber("");
+            materialBean.setPhotoFileNumber("Android");
             long size = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.SIZE)); // 大小
             //获取图片的生成日期
             byte[] data = cursor.getBlob(cursor.getColumnIndex(MediaStore.Images.Media.DATA));

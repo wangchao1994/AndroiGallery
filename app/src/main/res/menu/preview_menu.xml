@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+ <!--   &lt;!&ndash;搜索菜单&ndash;&gt;
+    <item
+        android:id="@+id/action_search"
+        android:icon="@mipmap/ic_launcher_round"
+        android:orderInCategory="80"
+        android:title="search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="ifRoom" />-->
+    <!--printf菜单-->
+    <item
+        android:id="@+id/action_printf"
+        android:icon="@mipmap/ic_launcher_round"
+        android:orderInCategory="90"
+        android:title="printf"
+        app:showAsAction="ifRoom" />
+    <!--更多菜单-->
+    <item
+        android:id="@+id/action_more"
+        android:icon="@mipmap/ic_launcher_round"
+        android:orderInCategory="100"
+        android:title="more"
+        app:showAsAction="ifRoom" />
+
+</menu>

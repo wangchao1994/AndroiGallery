@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
  * Activity权限基类
  */
 
-public class BasePermissionsActivity extends Activity {
+public class BasePermissionsActivity extends AppCompatActivity {
     public static final String TAG = "BasePermissionsActivity";
     public static  int REQUEST_CODE = 0;
 
