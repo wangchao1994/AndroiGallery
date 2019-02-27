@@ -123,8 +123,7 @@ public class MainActivity extends BaseActivity implements MultiItemTypeAdapter.O
                 break;
             case R.id.action_delete:
                 int selectedCount = mPhotoRecyAdapter.getSelectedCount();
-                String msgTitle = getResources().getString(R.string.alert_delete);
-                String format = String.format(msgTitle, selectedCount);
+                String format = String.format(getResources().getString(R.string.alert_delete), selectedCount);
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(this)
                         .setCancelable(true)
                         .setMessage(format)

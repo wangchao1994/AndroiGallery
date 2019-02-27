@@ -2,7 +2,6 @@ package com.raisesail.gallery.adapter;
 
 
 import android.content.Context;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -14,7 +13,6 @@ import com.raisesail.gallery.adapter.base.ViewHolder;
 import com.raisesail.gallery.data.LocalDataUtils;
 import com.raisesail.gallery.data.bean.LocalThumb;
 import com.raisesail.gallery.utils.LogUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +31,7 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
         mCheckBooleanList = new ArrayList<>();
         setDefaultStatus();
     }
+
     //设置Checkbox默认显示
     public void setDefaultStatus(){
         for (int i = 0; i< mLocalDataList.size();i++){
@@ -40,6 +39,7 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
         }
         mSelectedStatus = SelectedStatus.UN_SELECT_ALL;
     }
+
     @Override
     protected void convert(ViewHolder holder, LocalThumb detailPhotoInfo, final int position) {
         holder.setText(R.id.tv_photo_number,detailPhotoInfo.getPhotoFileNumber());
@@ -67,6 +67,7 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
         }
         notifyDataSetChanged();
     }
+
     /**
      * 设置勾选状态显示
      * @param flag
@@ -76,6 +77,7 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
             mCheckBooleanList.set(i,flag);
         }
     }
+
     /**
      * 删除所有数据
      */
@@ -85,6 +87,7 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
         mCheckBooleanList.clear();
         notifyDataSetChanged();
     }
+
     /**
      * 删除选中的数据
      */
@@ -138,11 +141,6 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
     public enum SelectedStatus{
         SELECT_ALL,
         UN_SELECT_ALL,
-    }
-
-    public void setLocalDataList(List<LocalThumb> localDataList){
-        mLocalDataList = localDataList;
-        setDefaultStatus();
     }
 
     /**

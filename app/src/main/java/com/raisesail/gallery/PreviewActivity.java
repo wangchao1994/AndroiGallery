@@ -23,7 +23,6 @@ public class PreviewActivity extends BaseActivity implements Toolbar.OnMenuItemC
     private TextView mPictureName;
     @Override
     protected void initData() {
-
     }
 
     @Override
