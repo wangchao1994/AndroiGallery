@@ -1,6 +1,7 @@
 package com.raisesail.gallery.data.bean;
 
 public class LocalThumb {
+
     private String photoFilePath;
     private String photoFileNumber;
 

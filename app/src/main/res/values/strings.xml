@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidRaise</string>
+    <string name="alert_delete">确认删除当前选中的 %1$d 项?</string>
 </resources>

@@ -25,22 +25,17 @@ import android.widget.TextView;
  * ViewHolder 基础类
  *
  */
-
 public class ViewHolder extends RecyclerView.ViewHolder {
-
 
 	private Context mContext ;
 	private View mConvertView ;
 	private SparseArray<View> mViews ;
 
-
-
-
 	public ViewHolder(Context context, View itemView) {
 		super(itemView);
 		this.mContext = context ;
 		this.mConvertView = itemView ;
-		this.mViews = new SparseArray<View>();;
+		this.mViews = new SparseArray<View>();
 	}
 
 	public static ViewHolder createViewHolder(Context context,View itemView){

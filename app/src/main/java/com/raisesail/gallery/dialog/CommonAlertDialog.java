@@ -118,9 +118,9 @@ public class CommonAlertDialog {
      * @param onPoClickListener ok btn onClickListener
      * @param onNeClickListener negative btn onClickListener
      */
-    public void showDialog(Activity mActivity, String content, String btnContent, String neContent,
-                           final View.OnClickListener onPoClickListener,
-                           final View.OnClickListener onNeClickListener) {
+    public void showDialog(Activity mActivity, String content, String btnContent, String neContent,final View.OnClickListener onNeClickListener
+                           ,final View.OnClickListener onPoClickListener
+                           ) {
         if (mActivity == null) {
             return;
         }

@@ -16,7 +16,7 @@ import com.raisesail.gallery.photoview.PhotoView;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class PreviewActivity extends BaseActivity{
+public class PreviewActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener{
     private static final String TAG = PreviewActivity.class.getSimpleName();
     private PhotoView mPhotoView;
     private Toolbar mToolbar;
@@ -66,13 +66,18 @@ public class PreviewActivity extends BaseActivity{
 
     }
 
-    @Override
-    protected void setOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.preview_menu,menu);
+    private void doPrintf() {
+        Log.d(TAG,"doPrintf------------------");
     }
 
     @Override
-    protected void setMenuItemClick(MenuItem menuItem) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.preview_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.action_printf:
                 doPrintf();
@@ -80,8 +85,6 @@ public class PreviewActivity extends BaseActivity{
             case R.id.action_more:
                 break;
         }
-    }
-    private void doPrintf() {
-        Log.d(TAG,"doPrintf------------------");
+        return true;
     }
 }

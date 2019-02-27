@@ -18,7 +18,7 @@
         app:showAsAction="ifRoom" />
     <!--更多菜单-->
     <item
-        android:id="@+id/action_more"
+        android:id="@+id/action_delete"
         android:icon="@mipmap/ic_launcher_round"
         android:orderInCategory="100"
         android:title="more"
