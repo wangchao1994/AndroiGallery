@@ -14,7 +14,6 @@ import com.raisesail.gallery.utils.AppManager;
 import org.greenrobot.eventbus.EventBus;
 
 public abstract class BaseActivity extends BasePermissionsActivity implements GlobalHandler.HandleMsgListener,Toolbar.OnMenuItemClickListener {
-
     private final int PERMISSION_REQUEST_CODE = 1000;
     private GlobalHandler mGlobalHandler;
     @Override
