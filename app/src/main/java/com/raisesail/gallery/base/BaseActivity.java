@@ -13,7 +13,6 @@ public abstract class BaseActivity extends BasePermissionsActivity implements Gl
 
     private final int PERMISSION_REQUEST_CODE = 1000;
     private GlobalHandler mGlobalHandler;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +20,7 @@ public abstract class BaseActivity extends BasePermissionsActivity implements Gl
         initStatusBar();
         initContentView();
         mGlobalHandler = GlobalHandler.getInstance();
+        mGlobalHandler.setHandleMsgListener(this);
         //requestPermission(new String[]{Manifest.permission.CAMERA},PERMISSION_REQUEST_CODE);
         AppManager.getAppManager().addActivity(this);
         EventBus.getDefault().register(this);
