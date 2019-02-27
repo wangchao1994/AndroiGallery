@@ -13,6 +13,8 @@ import com.raisesail.gallery.adapter.base.CommonAdapter;
 import com.raisesail.gallery.adapter.base.ViewHolder;
 import com.raisesail.gallery.data.LocalDataUtils;
 import com.raisesail.gallery.data.bean.LocalThumb;
+import com.raisesail.gallery.utils.LogUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +26,10 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
     private SelectedStatus mSelectedStatus;
     private CheckBox mCheckbox;
 
-    public PhotoRecyclerviewAdapter(Context context, int layoutId, List<LocalThumb> datas) {
-        super(context, layoutId, datas);
+    public PhotoRecyclerviewAdapter(Context context, int layoutId, List<LocalThumb> data_list) {
+        super(context, layoutId, data_list);
         mContext = context;
-        mLocalDataList = datas;
+        mLocalDataList = data_list;
         mCheckBooleanList = new ArrayList<>();
         setDefaultStatus();
     }
@@ -44,7 +46,7 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
         ImageView holderView = (ImageView) holder.getView(R.id.iv_photo_detail);
         String photoFile = detailPhotoInfo.getPhotoFilePath();
         if (!"".equals(photoFile) && null != photoFile){
-            Glide.with(mContext).load(photoFile).thumbnail( 0.1f ).into(holderView);
+            Glide.with(mContext).load(photoFile).thumbnail(0.1f).into(holderView);//缩略图
         }
         mCheckbox = holder.getView(R.id.checkbox);
         mCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -53,8 +55,10 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
                 mCheckBooleanList.set(position,isChecked);
             }
         });
+        LogUtils.d("BOOLEAN","mCheckBooleanList----->"+mCheckBooleanList.size() +"  position==="+position+" mLocalDataList.size()="+mLocalDataList.size());
         mCheckbox.setChecked(mCheckBooleanList.get(position));
     }
+
     //添加数据
     public void addLocalData(List<LocalThumb> mLocalData){
         mLocalDataList.addAll(mLocalData);
@@ -63,7 +67,6 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
         }
         notifyDataSetChanged();
     }
-
     /**
      * 设置勾选状态显示
      * @param flag
@@ -139,6 +142,7 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
 
     public void setLocalDataList(List<LocalThumb> localDataList){
         mLocalDataList = localDataList;
+        setDefaultStatus();
     }
 
     /**
@@ -156,18 +160,4 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
         return selectedCount;
     }
 
-
-    public void setCheckVisible(boolean isVisible){
-        if (mCheckbox == null)return;
-        if (isVisible){
-            mCheckbox.setVisibility(View.VISIBLE);
-            setDefaultStatus();
-        }else{
-            mCheckbox.setVisibility(View.GONE);
-        }
-//        notifyDataSetChanged();
-    }
-    public boolean getCheckBoxStatus(){
-        return mCheckbox.getVisibility() == View.VISIBLE;
-    }
 }

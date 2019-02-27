@@ -42,10 +42,7 @@ public class MainActivity extends BaseActivity implements MultiItemTypeAdapter.O
     protected void initData() {
         allLocalPhotos = LocalDataUtils.getAllLocalPhotos(this);
         Log.d(TAG,"allLocalPhotos----->"+allLocalPhotos.size());
-        if (mPhotoRecyAdapter == null){
-            mPhotoRecyAdapter = new PhotoRecyclerviewAdapter(this,R.layout.photo_detail_item,allLocalPhotos);
-        }
-        mPhotoRecyAdapter.setLocalDataList(allLocalPhotos);
+        mPhotoRecyAdapter = new PhotoRecyclerviewAdapter(this,R.layout.photo_detail_item,allLocalPhotos);
         mPhotoRecyAdapter.notifyDataSetChanged();
         mRecyclerView.setAdapter(mPhotoRecyAdapter);
         mPhotoRecyAdapter.setOnItemClickListener(this);
