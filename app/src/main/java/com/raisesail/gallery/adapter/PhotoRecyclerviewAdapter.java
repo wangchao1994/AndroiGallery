@@ -55,7 +55,6 @@ public class PhotoRecyclerviewAdapter extends CommonAdapter<LocalThumb> {
         });
         mCheckbox.setChecked(mCheckBooleanList.get(position));
     }
-
     //添加数据
     public void addLocalData(List<LocalThumb> mLocalData){
         mLocalDataList.addAll(mLocalData);
