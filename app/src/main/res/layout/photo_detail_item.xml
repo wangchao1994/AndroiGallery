@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <RelativeLayout
-        android:id="@+id/rl_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
-
-        <ImageView
+<com.raisesail.gallery.widget.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
             android:id="@+id/iv_photo_detail"
-            android:layout_width="@dimen/dp_80"
-            android:layout_height="@dimen/dp_80"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background" />
-        <CheckBox
+    <CheckBox
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@id/iv_photo_detail"
-            android:layout_alignTop="@id/iv_photo_detail"/>
-    </RelativeLayout>
-
+            style="@style/My_CheckBox"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="10dp"/>
     <TextView
         android:id="@+id/tv_photo_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/rl_layout"/>
-</RelativeLayout>
+        android:layout_below="@+id/iv_photo_detail"/>
+</com.raisesail.gallery.widget.SquareRelativeLayout>

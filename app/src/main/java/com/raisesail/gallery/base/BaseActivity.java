@@ -4,6 +4,8 @@ import android.Manifest;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.Window;
+import android.view.WindowManager;
+
 import com.raisesail.gallery.R;
 import com.raisesail.gallery.handler.GlobalHandler;
 import com.raisesail.gallery.immersive.StatusBar;
@@ -14,10 +16,12 @@ import org.greenrobot.eventbus.EventBus;
 public abstract class BaseActivity extends BasePermissionsActivity implements GlobalHandler.HandleMsgListener{
     private final int PERMISSION_REQUEST_CODE = 1000;
     private GlobalHandler mGlobalHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         initStatusBar();
         initContentView();
         mGlobalHandler = GlobalHandler.getInstance();

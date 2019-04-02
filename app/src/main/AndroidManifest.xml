@@ -22,7 +22,8 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

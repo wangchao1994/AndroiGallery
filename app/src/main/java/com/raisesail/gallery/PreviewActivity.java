@@ -47,11 +47,11 @@ public class PreviewActivity extends BaseActivity implements Toolbar.OnMenuItemC
             }
         });
     }
+
     @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
     public void previewEvent(PreviewPicEvent previewPicEvent){
         String fileName = previewPicEvent.fileName;
         if (null != fileName && !"".equals(fileName)){
-            //mToolbar.setTitle(fileName);
             mPictureName.setText(fileName);
         }
         String filePath = previewPicEvent.filePath;
