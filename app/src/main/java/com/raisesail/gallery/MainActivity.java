@@ -38,8 +38,8 @@ public class MainActivity extends BaseActivity implements MultiItemTypeAdapter.O
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView mRecyclerView;
-    private int mSpanCount = 5;
-    private int mSpacing = 36;
+    private int mSpanCount = 4;
+    private int mSpacing = 40;
     private boolean isIncludeEdge = true;
     private PhotoRecyclerViewAdapter mPhotoRecyAdapter;
     private List<LocalThumb> allLocalPhotos;
