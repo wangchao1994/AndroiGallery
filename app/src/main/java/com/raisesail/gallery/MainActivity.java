@@ -26,7 +26,9 @@ import com.raisesail.gallery.data.LocalDataUtils;
 import com.raisesail.gallery.data.bean.LocalThumb;
 import com.raisesail.gallery.decoration.GridSpacingItemDecoration;
 import com.raisesail.gallery.event.DataFreshEvent;
+import com.raisesail.gallery.event.PictureReportEvent;
 import com.raisesail.gallery.event.PreviewPicEvent;
+import com.raisesail.gallery.utils.LogUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -48,12 +50,13 @@ public class MainActivity extends BaseActivity implements MultiItemTypeAdapter.O
 
     @Override
     protected void initData() {
-        allLocalPhotos = LocalDataUtils.getAllLocalPhotos(this);
+        //首先获取本地目录路径
+        /*allLocalPhotos = LocalDataUtils.getAllLocalPhotos(this);
         Log.d(TAG,"allLocalPhotos----->"+allLocalPhotos.size());
         mPhotoRecyAdapter = new PhotoRecyclerViewAdapter(this,R.layout.photo_detail_item,allLocalPhotos);
         mPhotoRecyAdapter.notifyDataSetChanged();
         mRecyclerView.setAdapter(mPhotoRecyAdapter);
-        mPhotoRecyAdapter.setOnItemClickListener(this);
+        mPhotoRecyAdapter.setOnItemClickListener(this);*/
     }
 
     @Override
@@ -64,6 +67,19 @@ public class MainActivity extends BaseActivity implements MultiItemTypeAdapter.O
 
     @Subscribe(threadMode = ThreadMode.MAIN)//数据刷新
     public void notificationData(DataFreshEvent dataFreshEvent){
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
+    public void notiFierPictureReport(PictureReportEvent pictureReportEvent){
+        LogUtils.d("picture_report","--------------->"+pictureReportEvent.mFolerPath);
+        if (pictureReportEvent.mFolerPath != null && !"".equals(pictureReportEvent.mFolerPath)){
+            allLocalPhotos = LocalDataUtils.getImagePathFromStorage(pictureReportEvent.mFolerPath);
+           // mPhotoRecyAdapter.setNewData(imagePathFromStorage);
+            mPhotoRecyAdapter = new PhotoRecyclerViewAdapter(this,R.layout.photo_detail_item,allLocalPhotos);
+            mPhotoRecyAdapter.notifyDataSetChanged();
+            mRecyclerView.setAdapter(mPhotoRecyAdapter);
+            mPhotoRecyAdapter.setOnItemClickListener(this);
+        }
     }
 
     private void initView() {

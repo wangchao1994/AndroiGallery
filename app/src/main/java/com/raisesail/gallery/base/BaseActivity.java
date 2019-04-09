@@ -29,6 +29,7 @@ public abstract class BaseActivity extends BasePermissionsActivity implements Gl
         requestPermission(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE},PERMISSION_REQUEST_CODE);
         AppManager.getAppManager().addActivity(this);
         EventBus.getDefault().register(this);
+        initData();
     }
 
     private void initStatusBar() {
@@ -38,10 +39,7 @@ public abstract class BaseActivity extends BasePermissionsActivity implements Gl
     @Override
     protected void onResume() {
         super.onResume();
-        initData();
     }
-
-
     @Override
     protected void onDestroy() {
         super.onDestroy();

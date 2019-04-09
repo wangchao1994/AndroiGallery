@@ -17,6 +17,11 @@ public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T> {
         this(context, layoutId, new ArrayList<T>());
     }
 
+    public void setNewData(List<T> data){
+        this.mDatas = data == null ? new ArrayList<T>() : data;
+        notifyDataSetChanged();
+    }
+
     public CommonAdapter(final Context context, final int layoutId, List<T> datas) {
         super(context, datas);
         mContext = context;

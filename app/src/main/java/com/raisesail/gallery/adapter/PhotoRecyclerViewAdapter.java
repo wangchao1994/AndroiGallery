@@ -41,7 +41,7 @@ public class PhotoRecyclerViewAdapter extends CommonAdapter<LocalThumb> {
     }
 
     @Override
-    protected void convert(ViewHolder holder, LocalThumb detailPhotoInfo, final int position) {
+    protected void convert(final ViewHolder holder, LocalThumb detailPhotoInfo, final int position) {
         holder.setText(R.id.tv_photo_number,detailPhotoInfo.getPhotoFileNumber());
         ImageView holderView = (ImageView) holder.getView(R.id.iv_photo_detail);
         String photoFile = detailPhotoInfo.getPhotoFilePath();

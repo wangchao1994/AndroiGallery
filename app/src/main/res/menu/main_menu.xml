@@ -12,14 +12,14 @@
     <!--printf菜单-->
     <item
         android:id="@+id/action_printf"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@android:drawable/ic_dialog_email"
         android:orderInCategory="90"
         android:title="printf"
         app:showAsAction="ifRoom" />
     <!--更多菜单-->
     <item
         android:id="@+id/action_delete"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@android:drawable/ic_menu_delete"
         android:orderInCategory="100"
         android:title="more"
         app:showAsAction="ifRoom" />
